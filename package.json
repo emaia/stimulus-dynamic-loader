@@ -9,7 +9,13 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./loader": {
+      "import": "./dist/loader.js",
+      "require": "./dist/loader.js",
+      "types": "./dist/loader.d.ts"
     }
   },
   "files": [
@@ -31,7 +37,9 @@
   },
   "devDependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vitest": "^1.2.2"
   },
   "author": "Ednilson Maia",
   "license": "MIT"

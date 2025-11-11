@@ -22,7 +22,7 @@ npm install @emaia/stimulus-dynamic-loader
 
 ```typescript
 import { Application } from "@hotwired/stimulus";
-import { StimulusDynamicLoader } from "@emaia/stimulus-dynamic-loader";
+import { registerControllers } from "@emaia/stimulus-dynamic-loader";
 
 const Stimulus = Application.start();
 
@@ -30,28 +30,25 @@ const controllers = import.meta.glob("./**/*_controller.{js,ts}", {
   eager: false 
 });
 
-new StimulusDynamicLoader({
-  application: Stimulus,
-  controllers: controllers,
-});
+registerControllers(Stimulus, controllers)
+
 ```
 
 ### Custom Configuration
 
 ```typescript
-new StimulusDynamicLoader({
-  application: Stimulus,
-  controllers: controllers,
-  
+const options = {
   // Custom Turbo events (optional)
   turboEvents: [
     "turbo:load",
     "turbo:frame-render",
   ],
   
-  // Custom debounce wait time in ms (optional, default: 50)
-  debounceWait: 100,
-});
+  // Custom debounce wait time in ms (optional, default: 100)
+  debounceWait: 50,
+};
+
+registerControllers(Stimulus, controllers, options)
 ```
 
 ### With Cleanup
