@@ -1,0 +1,38 @@
+{
+  "name": "@emaia/stimulus-dynamic-loader",
+  "version": "1.0.0",
+  "description": "Dynamic lazy-loading for Stimulus controllers with Turbo support",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "stimulus",
+    "hotwire",
+    "turbo",
+    "lazy-loading",
+    "dynamic-import"
+  ],
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3.0.0"
+  },
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "typescript": "^5.3.3"
+  },
+  "author": "Ednilson Maia",
+  "license": "MIT"
+}
