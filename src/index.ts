@@ -45,11 +45,12 @@ export class StimulusDynamicLoader {
         this.controllers = options.controllers;
 
         this.controllerPathMap = Object.keys(this.controllers).reduce((map, path) => {
-            const name = path.match(/([^/]+)_controller\.(?:js|ts)$/i)?.[1];
-            if (name) {
-                const key = this.normalizeControllerName(name);
+            const logicalName = path.match(/^(?:.*?(?:controllers|components)\/|\.?\.\/)?(.+)[\/_-]controller\..+?$/)?.[1];
+            if (logicalName) {
+                const identifier = logicalName.replace(/_/g, '-').replace(/\//g, '--');
+                const key = identifier.toLowerCase();
                 if (map[key]) {
-                    console.warn(`Duplicate controller name: ${name} (${map[key]} and ${path})`);
+                    console.warn(`Duplicate controller name: ${identifier} (${map[key]} and ${path})`);
                 }
                 map[key] = path;
             }

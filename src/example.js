@@ -20,4 +20,3 @@ const loader = new StimulusDynamicLoader({
 });
 
 await loader.loadController("chart");
-// Agora renderiza o HTML com data-controller="chart"
