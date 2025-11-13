@@ -81,6 +81,35 @@ loader.disconnect();
 - Automatically handles Turbo frame renders and stream updates
 - MutationObserver watches for dynamically added elements
 
+## Extensions and Structure
+
+``` ts
+'./dropdown_controller.ts' → 'dropdown'
+'./dropdown_controller.js' → 'dropdown'
+'./dropdown_controller.tsx' → 'dropdown'
+'./dropdown_controller.mjs' → 'dropdown'
+
+// Flat
+'./users_controller.ts' → 'users'
+
+// Controllers folder
+'./controllers/users_controller.ts' → 'users'
+
+// Components folder
+'./components/dropdown_controller.ts' → 'dropdown'
+
+// Deep nested
+'./controllers/admin/settings/billing_controller.ts' → 'admin--settings--billing'
+```
+```html
+<!-- Flat -->
+<div data-controller="users"></div>
+
+<!-- Nested -->
+<div data-controller="admin--users"></div>
+<div data-controller="admin--settings--billing"></div>
+```
+
 ## Requirements
 
 - `@hotwired/stimulus` ^3.0.0

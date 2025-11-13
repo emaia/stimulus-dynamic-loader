@@ -23,7 +23,11 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "prepublishOnly": "bun run build"
   },
   "repository": {
     "type": "git",
@@ -44,6 +48,9 @@
   },
   "devDependencies": {
     "@hotwired/stimulus": "^3.2.2",
+    "@types/jsdom": "^27.0.0",
+    "@vitest/coverage-v8": "1",
+    "jsdom": "^27.2.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
     "vitest": "^1.2.2"
